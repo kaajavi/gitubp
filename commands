@@ -1,0 +1,158 @@
+kaajavi@kaasus:~/borrar/gitubp$ git init
+Reinitialized existing Git repository in /home/kaajavi/borrar/gitubp/.git/
+kaajavi@kaasus:~/borrar/gitubp$ ls
+README.md
+kaajavi@kaasus:~/borrar/gitubp$ ls -A
+.git  README.md
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+
+Commit inicial
+
+Archivos sin seguimiento:
+  (use «git add <archivo>...» para incluir en lo que se ha de confirmar)
+
+	README.md
+
+no se ha agregado nada al commit pero existen archivos sin seguimiento (use «git add» para darle seguimiento)
+kaajavi@kaasus:~/borrar/gitubp$ git add README.md 
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+
+Commit inicial
+
+Cambios para hacer commit:
+  (use «git rm --cached <archivo>...» para sacar del stage)
+
+	nuevo archivo: README.md
+
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+
+Commit inicial
+
+Cambios para hacer commit:
+  (use «git rm --cached <archivo>...» para sacar del stage)
+
+	nuevo archivo: README.md
+
+Cambios no preparados para el commit:
+  (use «git add <archivo>...» para actualizar lo que se confirmará)
+  (use «git checkout -- <archivo>...» para descartar cambios en el directorio de trabajo)
+
+	modificado:    README.md
+
+kaajavi@kaasus:~/borrar/gitubp$ git checkout Re
+error: pathspec 'Re' did not match any file(s) known to git.
+kaajavi@kaasus:~/borrar/gitubp$ git checkout R
+error: pathspec 'R' did not match any file(s) known to git.
+kaajavi@kaasus:~/borrar/gitubp$ git checkout README.md
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+
+Commit inicial
+
+Cambios para hacer commit:
+  (use «git rm --cached <archivo>...» para sacar del stage)
+
+	nuevo archivo: README.md
+
+kaajavi@kaasus:~/borrar/gitubp$ git commit -m 'Agrego readme'
+[master (root-commit) 58d17d7] Agrego readme
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+nothing to commit, working directory clean
+kaajavi@kaasus:~/borrar/gitubp$ git checkout 
+HEAD     master   
+kaajavi@kaasus:~/borrar/gitubp$ git checkout develop
+error: pathspec 'develop' did not match any file(s) known to git.
+kaajavi@kaasus:~/borrar/gitubp$ git branch develop
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama master
+nothing to commit, working directory clean
+kaajavi@kaasus:~/borrar/gitubp$ git checkout develop
+Switched to branch 'develop'
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama develop
+nothing to commit, working directory clean
+kaajavi@kaasus:~/borrar/gitubp$ touch index.html
+kaajavi@kaasus:~/borrar/gitubp$ nano index.html 
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama develop
+Archivos sin seguimiento:
+  (use «git add <archivo>...» para incluir en lo que se ha de confirmar)
+
+	index.html
+
+no se ha agregado nada al commit pero existen archivos sin seguimiento (use «git add» para darle seguimiento)
+kaajavi@kaasus:~/borrar/gitubp$ git add index.html 
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama develop
+Cambios para hacer commit:
+  (use «git reset HEAD <archivo>...» para sacar del stage)
+
+	nuevo archivo: index.html
+
+kaajavi@kaasus:~/borrar/gitubp$ git commit -m 'Agrego el index.html'
+[develop 840f300] Agrego el index.html
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+kaajavi@kaasus:~/borrar/gitubp$ git checkout master 
+Switched to branch 'master'
+kaajavi@kaasus:~/borrar/gitubp$ git checkout develop
+Switched to branch 'develop'
+kaajavi@kaasus:~/borrar/gitubp$ git status
+En la rama develop
+nothing to commit, working directory clean
+kaajavi@kaasus:~/borrar/gitubp$ git remote add origin https://github.com/kaajavi/gitubp.git
+kaajavi@kaasus:~/borrar/gitubp$ git push -u origin master
+Username for 'https://github.com': kaajavi
+Password for 'https://kaajavi@github.com': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 240 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/kaajavi/gitubp.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+kaajavi@kaasus:~/borrar/gitubp$ git push
+warning: push.default is unset; its implicit value has changed in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the traditional behavior, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+Since Git 2.0, Git defaults to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+fatal: The current branch develop has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin develop
+
+kaajavi@kaasus:~/borrar/gitubp$ git push -u origin develop
+Username for 'https://github.com': kaajavi
+Password for 'https://kaajavi@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 307 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/kaajavi/gitubp.git
+ * [new branch]      develop -> develop
+Branch develop set up to track remote branch develop from origin.
+kaajavi@kaasus:~/borrar/gitubp$ 
+
